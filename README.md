@@ -71,6 +71,8 @@ Response: 4
 ```
 
 ## GET /countries
+_**Note:** I had to use the "/currency" endpoint instead of the "/all" endpoint, because the last one was giving me some time-out exceptions due to data volume_
+
 Response: Returns a list of countries with the following properties:
 - Common Name
 - Capital
