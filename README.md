@@ -5,9 +5,10 @@
 This project implements a Web API to solve the following assessment questions:
 
 1. **Find the Second Largest Integer**: An HTTP POST endpoint that receives a JSON body containing an array of integers and returns the second largest integer.
-2. **Retrieve Country Information**: An HTTP GET endpoint that calls the [REST Countries API](https://restcountries.com/), retrieves data about countries, and returns specific properties.
-3. **Store Country Data**: Saves the retrieved country data into a Microsoft SQL Server database.
-4. **Caching Mechanism**: Implements caching using `MemoryCache` to optimize data retrieval, checking the cache first before querying the database or making an external API call.
+2. **Retrieve Country Information**: An HTTP GET endpoint that calls the [REST Countries API](https://restcountries.com/#endpoints-currency), retrieves data about countries, and returns specific properties.
+   - **Note:** I had to use the "/currency" endpoint instead of the "/all" endpoint, because the last one was giving me some time-out exceptions due to data volume
+4. **Store Country Data**: Saves the retrieved country data into a Microsoft SQL Server database.
+5. **Caching Mechanism**: Implements caching using `MemoryCache` to optimize data retrieval, checking the cache first before querying the database or making an external API call.
 
 ## Features
 
