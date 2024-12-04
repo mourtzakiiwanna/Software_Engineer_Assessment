@@ -1,4 +1,4 @@
-﻿namespace CountriesProject.Data
+﻿namespace Data
 {
     public class CountryDbModel
     {

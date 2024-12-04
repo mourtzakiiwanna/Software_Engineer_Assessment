@@ -1,6 +1,5 @@
-﻿using CountriesProject.Data;
-using CountriesProject.Models.Country;
-using Data;
+﻿using Data;
+using Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
 using Newtonsoft.Json;
@@ -13,10 +12,11 @@ namespace Services
         private readonly IMemoryCache _cache;
         private readonly HttpClient _httpClient;
 
-        public CountryService(CountryDbContext context, IMemoryCache cache)
+        public CountryService(CountryDbContext context, IMemoryCache cache, HttpClient httpClient)
         {
             _context = context;
             _cache = cache;
+            _httpClient = httpClient;
 
             var handler = new HttpClientHandler
             {

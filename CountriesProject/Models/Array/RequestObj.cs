@@ -1,4 +1,7 @@
-﻿public class RequestObj
+﻿namespace Models
 {
-    public IEnumerable<int> RequestArrayObj { get; set; }
+    public class RequestObj
+    {
+        public IEnumerable<int> RequestArrayObj { get; set; }
+    }
 }

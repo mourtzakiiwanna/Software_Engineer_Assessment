@@ -1,4 +1,4 @@
-﻿namespace CountriesProject.Models.Country
+﻿namespace Models
 {
     public class CountryName
     {

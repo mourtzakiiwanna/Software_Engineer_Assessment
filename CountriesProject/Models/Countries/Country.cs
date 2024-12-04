@@ -1,4 +1,4 @@
-﻿namespace CountriesProject.Models.Country
+﻿namespace Models
 {
     // for deserialization purposes 
     public class Country

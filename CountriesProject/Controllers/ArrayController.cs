@@ -1,27 +1,40 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Models;
+using Services;
 
-[ApiController]
-[Route("[controller]")]
-public class ArrayController : ControllerBase
+namespace Controllers
 {
-    [HttpPost]
-    public IActionResult GetSecondLargest([FromBody] RequestObj request)
+    [ApiController]
+    [Route("[controller]")]
+    public class ArrayController : ControllerBase
     {
-        if (request?.RequestArrayObj == null || !request.RequestArrayObj.Any())
+        private readonly ArrayService _arrayService;
+
+        public ArrayController(ArrayService arrayService)
         {
-            return BadRequest("Request array cannot be null or empty.");
+            _arrayService = arrayService;
         }
 
-        var distinctNumbers = request.RequestArrayObj
-            .Distinct()
-            .OrderByDescending(n => n)
-            .ToList();
-
-        if (distinctNumbers.Count < 2)
+        [HttpPost]
+        public IActionResult GetSecondLargest([FromBody] RequestObj request)
         {
-            return BadRequest("Not enough distinct numbers to determine the second largest.");
+            try
+            {
+                var secondLargest = _arrayService.GetSecondLargest(request);
+                return Ok(secondLargest);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
-
-        return Ok(distinctNumbers[1]);
     }
 }
