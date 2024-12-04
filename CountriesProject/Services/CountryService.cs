@@ -50,7 +50,7 @@ namespace Services
                     return countryResponses;
                 }
 
-                var request = new HttpRequestMessage(HttpMethod.Get, "https://restcountries.com/v3.1/currency/sbd");
+                var request = new HttpRequestMessage(HttpMethod.Get, "https://restcountries.com/v3.1/currency/eur");
                 HttpResponseMessage response = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
 
                 if (!response.IsSuccessStatusCode)
